@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KZNEDTEA SharePoint Components</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root { --green: #1a6b3a; --green-light: #e6f4ec; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: #f4f6f4; padding: 24px; color: #1e1e1e; }
+  h1 { color: var(--green); font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+  .subtitle { color: #6b7280; font-size: 13px; margin-bottom: 28px; }
+  .card { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); margin-bottom: 24px; overflow: hidden; }
+  .card-header { background: var(--green); padding: 12px 18px; color: #fff; font-size: 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .card-body { padding: 16px 18px; }
+  .preview { margin-bottom: 14px; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
+  iframe { display: block; width: 100%; border: none; }
+  .code-label { font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .code-box {
+    background: #1e1e2e;
+    color: #a6e3a1;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    font-family: monospace;
+    word-break: break-all;
+    line-height: 1.6;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.15s;
+  }
+  .code-box:hover { background: #2a2a3e; }
+  .copy-hint { position: absolute; top: 8px; right: 10px; font-size: 10px; color: rgba(166,227,161,0.6); font-family: 'Outfit', sans-serif; }
+  .copied { color: #86efac !important; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>🌿 KZNEDTEA SharePoint Web Parts</h1>
+<p class="subtitle">Click any embed code to copy it, then paste into SharePoint → Edit Page → Embed web part.</p>
+
+<!-- QUICK LINKS -->
+<div class="card">
+  <div class="card-header">⚡ Quick Links</div>
+  <div class="card-body">
+    <div class="preview">
+      <iframe src="quicklinks.html" height="240" scrolling="no"></iframe>
+    </div>
+    <div class="code-label">Embed Code — paste into SharePoint</div>
+    <div class="code-box" onclick="copyCode(this, 'quicklinks.html', 240)">
+      <span class="copy-hint">Click to copy</span>
+      &lt;iframe src="https://YOUR-USERNAME.github.io/YOUR-REPO/quicklinks.html" width="100%" height="240" frameborder="0" scrolling="no" style="border:none"&gt;&lt;/iframe&gt;
+    </div>
+  </div>
+</div>
+
+<!-- ONBOARDING -->
+<div class="card">
+  <div class="card-header">🗺 Onboarding Roadmap</div>
+  <div class="card-body">
+    <div class="preview">
+      <iframe src="onboarding.html" height="480" scrolling="no"></iframe>
+    </div>
+    <div class="code-label">Embed Code — paste into SharePoint</div>
+    <div class="code-box" onclick="copyCode(this, 'onboarding.html', 480)">
+      <span class="copy-hint">Click to copy</span>
+      &lt;iframe src="https://YOUR-USERNAME.github.io/YOUR-REPO/onboarding.html" width="100%" height="480" frameborder="0" scrolling="no" style="border:none"&gt;&lt;/iframe&gt;
+    </div>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="card">
+  <div class="card-header">📊 KPI Metrics</div>
+  <div class="card-body">
+    <div class="preview">
+      <iframe src="kpi.html" height="200" scrolling="no"></iframe>
+    </div>
+    <div class="code-label">Embed Code — paste into SharePoint</div>
+    <div class="code-box" onclick="copyCode(this, 'kpi.html', 200)">
+      <span class="copy-hint">Click to copy</span>
+      &lt;iframe src="https://YOUR-USERNAME.github.io/YOUR-REPO/kpi.html" width="100%" height="200" frameborder="0" scrolling="no" style="border:none"&gt;&lt;/iframe&gt;
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<div class="card">
+  <div class="card-header">👋 Welcome Banner</div>
+  <div class="card-body">
+    <div class="preview">
+      <iframe src="welcome.html" height="200" scrolling="no"></iframe>
+    </div>
+    <div class="code-label">Embed Code — paste into SharePoint</div>
+    <div class="code-box" onclick="copyCode(this, 'welcome.html', 200)">
+      <span class="copy-hint">Click to copy</span>
+      &lt;iframe src="https://YOUR-USERNAME.github.io/YOUR-REPO/welcome.html" width="100%" height="200" frameborder="0" scrolling="no" style="border:none"&gt;&lt;/iframe&gt;
+    </div>
+  </div>
+</div>
+
+<script>
+function copyCode(el, file, height) {
+  const base = window.location.href.replace('index.html','').replace(/\/$/, '');
+  const code = `<iframe src="${base}/${file}" width="100%" height="${height}" frameborder="0" scrolling="no" style="border:none"></iframe>`;
+  navigator.clipboard.writeText(code).then(() => {
+    const hint = el.querySelector('.copy-hint');
+    hint.textContent = '✓ Copied!';
+    hint.classList.add('copied');
+    setTimeout(() => { hint.textContent = 'Click to copy'; hint.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
