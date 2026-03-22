@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green: #1a6b3a;
+    --green-dark: #145530;
+    --green-light: #e6f4ec;
+    --green-mid: #2d8a50;
+    --teal: #0f7b6c;
+    --amber: #b45309;
+    --white: #ffffff;
+    --text: #1e1e1e;
+    --border: #e0e0e0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: transparent; padding: 12px; }
+
+  .wrapper { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.09); }
+
+  .header { background: var(--green); padding: 12px 18px; display: flex; align-items: center; gap: 8px; }
+  .header svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .header h2 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+
+  .tile {
+    background: var(--white);
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: background 0.15s;
+    cursor: default;
+  }
+  .tile:hover { background: var(--green-light); }
+
+  .tile-label { font-size: 10.5px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.07em; }
+
+  .tile-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .arrow-up { color: #16a34a; font-size: 18px; }
+  .arrow-down { color: #dc2626; font-size: 18px; }
+
+  .tile-sub { font-size: 10.5px; color: #9ca3af; font-weight: 500; }
+
+  .tile.dark { background: var(--green); }
+  .tile.dark:hover { background: var(--green-dark); }
+  .tile.dark .tile-label { color: rgba(255,255,255,0.7); }
+  .tile.dark .tile-value { color: #ffffff; }
+  .tile.dark .tile-sub { color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <h2>Performance Overview</h2>
+  </div>
+  <div class="grid">
+
+    <div class="tile dark">
+      <span class="tile-label">Loan Growth</span>
+      <span class="tile-value">23% <span class="arrow-up" style="color:#86efac">↑</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+    <div class="tile dark">
+      <span class="tile-label">Investment Growth</span>
+      <span class="tile-value">5.2% <span class="arrow-up" style="color:#86efac">↑</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+    <div class="tile dark">
+      <span class="tile-label">New Accounts</span>
+      <span class="tile-value">27.6K <span class="arrow-down" style="color:#fca5a5">↓</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+    <div class="tile">
+      <span class="tile-label">Distance from Goal 1</span>
+      <span class="tile-value">9.1M <span class="arrow-up">↑</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+    <div class="tile">
+      <span class="tile-label">Distance from Goal 2</span>
+      <span class="tile-value">15.3M <span class="arrow-down">↓</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+    <div class="tile">
+      <span class="tile-label">Active Projects</span>
+      <span class="tile-value">42 <span class="arrow-up">↑</span></span>
+      <span class="tile-sub">this quarter</span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
